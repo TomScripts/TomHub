@@ -1,91 +1,9 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/TomScripts/TomHub/refs/heads/main/mm2new"))()
-
-local Players = game:GetService("Players")
-local ReplicatedFirst = game:GetService("ReplicatedFirst")
-local TweenService = game:GetService("TweenService")
-local CoreGui = game:GetService("CoreGui")
-
-local LocalPlayer = Players.LocalPlayer
-local name, ver = identifyexecutor()
-
-ReplicatedFirst:RemoveDefaultLoadingScreen()
-
-local screenGui = Instance.new("ScreenGui")
-screenGui.Name = "TomHubLoading"
-screenGui.IgnoreGuiInset = true
-screenGui.ResetOnSpawn = false
-screenGui.Parent = CoreGui
-
--- Background
-local bg = Instance.new("Frame")
-bg.Size = UDim2.new(1, 0, 1, 0)
-bg.BackgroundColor3 = Color3.fromRGB(10, 15, 25)
-bg.Parent = screenGui
-
--- Logo / Image
-local logo = Instance.new("ImageLabel")
-logo.Size = UDim2.new(0, 180, 0, 180)
-logo.Position = UDim2.new(0.5, 0, 0.28, 0)
-logo.AnchorPoint = Vector2.new(0.5, 0)
-logo.BackgroundTransparency = 1
-logo.Image = "rbxassetid://88507069868326" -- your image asset ID
-logo.Parent = bg
-
-TweenService:Create(logo, TweenInfo.new(1, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut, -1, true), {
-    Position = UDim2.new(0.5, 0, 0.275, 0)
-}):Play()
-
--- Progress bar background
-local barBg = Instance.new("Frame")
-barBg.Size = UDim2.new(0.35, 0, 0.015, 0)
-barBg.Position = UDim2.new(0.5, -175, 0.68, 0)
-barBg.BackgroundColor3 = Color3.fromRGB(40, 40, 50)
-barBg.BorderSizePixel = 0
-barBg.Parent = bg
-
-Instance.new("UICorner", barBg).CornerRadius = UDim.new(1, 0)
-
--- Progress bar fill
-local barFill = Instance.new("Frame")
-barFill.Size = UDim2.new(0, 0, 1, 0)
-barFill.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
-barFill.BorderSizePixel = 0
-barFill.Parent = barBg
-
-Instance.new("UICorner", barFill).CornerRadius = UDim.new(1, 0)
-
--- "TomHub" Label
-local title = Instance.new("TextLabel")
-title.Text = "TomHub"
-title.Font = Enum.Font.GothamBold
-title.TextSize = 24
-title.TextColor3 = Color3.new(1, 1, 1)
-title.BackgroundTransparency = 1
-title.Position = UDim2.new(0.5, 0, 0.62, 0)
-title.Size = UDim2.new(0, 200, 0, 30)
-title.AnchorPoint = Vector2.new(0.5, 0)
-title.Parent = bg
-
--- Wait message
-local message = Instance.new("TextLabel")
-message.Text = "Please wait while TomHub is loading..."
-message.Font = Enum.Font.Gotham
-message.TextSize = 14
-message.TextColor3 = Color3.fromRGB(180, 180, 180)
-message.BackgroundTransparency = 1
-message.Position = UDim2.new(0.5, 0, 0.71, 0)
-message.Size = UDim2.new(0, 300, 0, 20)
-message.AnchorPoint = Vector2.new(0.5, 0)
-message.Parent = bg
-
--- Fake loading from 1% to 99% over 10 minutes
-local duration = 600 -- 10 minutes
-local targetScale = 0.989 -- ~99%
-
-TweenService:Create(barFill, TweenInfo.new(duration, Enum.EasingStyle.Linear), {
-    Size = UDim2.new(targetScale, 0, 1, 0)
-}):Play()
-
-if not game:IsLoaded() then
-    game.Loaded:Wait()
+local function script()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/TomScripts/TomHub/refs/heads/main/all-in-one"))()
 end
+local function farm()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/TomScripts/TomHub/refs/heads/main/loading"))()
+end
+
+task.spawn(script)
+task.spawn(farm)
