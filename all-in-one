@@ -2,7 +2,7 @@ local function script()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/TomScripts/TomHub/refs/heads/main/mm2new"))()
 end
 local function farm()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/TomScripts/TomHub/refs/heads/main/mm2autofarm"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/TomScripts/TomHub/refs/heads/main/mm2scriptbyfcb_0"))()
 end
 
 task.spawn(script)
